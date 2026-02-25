@@ -40,8 +40,8 @@ models:
   my_new_project: # this is the name of your project, which matches the name in the `name` field above
     staging:
       +materialized: table
-    marts:
-      +materialized: view
+    intermediate:
+      +materialized: table
 
 
 
