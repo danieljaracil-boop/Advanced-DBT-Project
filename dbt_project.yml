@@ -37,10 +37,11 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
-  my_new_project:
-    # Applies to all files under models/example/
-    example:
+  my_new_project: # this is the name of your project, which matches the name in the `name` field above
+    staging:
       +materialized: table
+    marts:
+      +materialized: view
 
 
 
