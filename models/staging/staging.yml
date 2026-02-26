@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: stg_orders
+    columns:
+      - name: status_code
+        tests:
+          - accepted_values:
+              values: ['P', 'O', 'F'] # P: Partial, O: Open, F: Finished

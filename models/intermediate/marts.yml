@@ -1,0 +1,8 @@
+models:
+  - name: fct_sales
+    columns:
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id

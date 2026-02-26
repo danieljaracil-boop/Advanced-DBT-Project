@@ -18,7 +18,8 @@ SELECT
     li.extended_price,
     li.discount_percentage,
     -- Cálculo del ingreso neto
-    (li.extended_price * (1 - li.discount_percentage)) AS net_item_sales_amount
+    -- Aplicamos la macro en lugar de escribir la fórmula manual
+    {{ calculate_discounted_amount('li.extended_price', 'li.discount_percentage') }} AS net_item_sales_amount
 FROM line_item li
 JOIN orders o ON li.order_id = o.order_id
 
