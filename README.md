@@ -1,7 +1,7 @@
 # Reto Técnico: Implementación de Arquitectura de Datos (dbt + Snowflake)
 
 ## 1. Descripción del Proyecto
-Este proyecto consiste en la implementación de un flujo de datos completo (ELT) utilizando el dataset `TPCH_SF1` disponible en Snowflake[cite: 2, 11]. El objetivo principal es transformar datos crudos en una capa analítica compuesta por un modelo dimensional (Hechos y Dimensiones) explotable por las Business Units.
+Este proyecto consiste en la implementación de un flujo de datos completo (ELT) utilizando el dataset `TPCH_SF1` disponible en Snowflake. El objetivo principal es transformar datos crudos en una capa analítica compuesta por un modelo dimensional (Hechos y Dimensiones) explotable por las Business Units.
 
 ## 2. Arquitectura de Capas
 Se ha diseñado una arquitectura modular dividida en tres capas de modelización:
@@ -15,7 +15,7 @@ Su propósito es ejecutar la extracción de datos desde los sistemas fuente con 
 * **Materialización**: Tablas.
 
 ### B. Transformation Layer (Intermedia)
-[cite_start]Capa donde se llevan a cabo transformaciones y combinaciones parciales (campos calculados, granularidad y joins).
+Capa donde se llevan a cabo transformaciones y combinaciones parciales (campos calculados, granularidad y joins).
 * **Materialización**: Vista (carga total).
 * **Innovación**: Uso de una **Macro personalizada** (`calculate_discounted_amount`) para estandarizar cálculos financieros de forma reutilizable.
 
