@@ -46,11 +46,12 @@ El proyecto cuenta con una robusta suite de validación que garantiza la fiabili
     ```bash
     dbt deps
     ```
+    
 2.  **Construir y Validar el Pipeline**:
     ```bash
     dbt build
     ```
-    *(Este comando ejecuta dbt run, dbt test y dbt snapshot de forma atómica).*
+
 3.  **Visualizar Linaje y Documentación**:
     ```bash
     dbt docs generate
