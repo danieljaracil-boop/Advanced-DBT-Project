@@ -6,5 +6,5 @@ models:
       - name: status_code
         tests:
           - accepted_values:
-              arguments: # List of accepted values for the status_code column
-                values: ['P', 'O', 'F'] # P: Pending, O: Open, F: Fulfilled
+              arguments: 
+                values: ['P', 'O', 'F'] 
