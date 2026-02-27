@@ -1,64 +1,64 @@
-# Reto Técnico: Implementación de Arquitectura de Datos (dbt + Snowflake)
+# Reto Técnico: Arquitectura de Datos dbt + Snowflake (TPCH)
 
 ## 1. Descripción del Proyecto
-Este proyecto consiste en la implementación de un flujo de datos completo (ELT) utilizando el dataset `TPCH_SF1` disponible en Snowflake. El objetivo principal es transformar datos crudos en una capa analítica compuesta por un modelo dimensional (Hechos y Dimensiones) explotable por las Business Units.
+Este proyecto implementa un flujo de datos completo (ELT) utilizando el dataset de industria **TPCH_SF1** en Snowflake. El objetivo es transformar datos crudos en una capa analítica compuesta por un modelo dimensional (Star Schema) optimizado para el consumo de Business Intelligence.
 
 ## 2. Arquitectura de Capas
-Se ha diseñado una arquitectura modular dividida en tres capas de modelización:
+Se ha implementado una arquitectura modular siguiendo las mejores prácticas de dbt:
 
-### A. Staging Layer (Extracción)
-Su propósito es ejecutar la extracción de datos desde los sistemas fuente con el menor impacto posible en el desempeño.
-* **Entidades**: Contiene las mismas entidades que el dataset origen.
-* **Estrategia de Carga**: 
-    * `stg_orders`: Configurada con carga **incremental** para optimizar ventanas de tiempo.
-    * Resto de entidades: Configuración de carga total.
+### A. Staging Layer (`models/staging/`)
+Mapeo directo y limpieza inicial de las entidades fuente.
+* **Materialización**: Tablas.
+* **Estrategia Incremental**: El modelo `stg_orders` utiliza carga **incremental** basada en `o_orderdate` para optimizar el rendimiento y reducir el consumo de recursos en Snowflake.
+* **Gobernanza**: Control de frescura (`source freshness`) configurado para monitorear la latencia de los datos de origen.
+
+### B. Intermediate Layer (`models/intermediate/`)
+Capa de lógica de negocio donde se realizan cruces complejos y cálculos.
+* **Modelo**: `int_order_items`.
+* **Lógica**: Uso de una **Macro personalizada** (`calculate_discounted_amount`) para centralizar el cálculo del importe neto tras descuentos, garantizando la reutilización del código.
+* **Materialización**: Vista.
+
+### C. Business Layer - Marts (`models/marts/`)
+Producto final listo para el negocio, estructurado como modelo dimensional.
+* **Fact Table**: `fct_sales` (Métricas de ventas agregadas y detalle transaccional).
+* **Dimensions**: `dim_customers` (Atributos de cliente) y `dim_date` (Dimensión temporal generada mediante *date spine*).
 * **Materialización**: Tablas.
 
-### B. Transformation Layer (Intermedia)
-Capa donde se llevan a cabo transformaciones y combinaciones parciales (campos calculados, granularidad y joins).
-* **Materialización**: Vista (carga total).
-* **Innovación**: Uso de una **Macro personalizada** (`calculate_discounted_amount`) para estandarizar cálculos financieros de forma reutilizable.
-
-### C. Business Layer (Consumo)
-Capa final que proporciona el modelo dimensional explotable.
-* **Modelo**: Esquema en estrella (Star Schema).
-* **Entidades**: Tabla de hechos `fct_sales` y dimensiones descriptivas `dim_customers` y `dim_date`.
-* **Materialización**: Tabla (carga total).
 
 
+## 3. Calidad y Validación de Datos
+El proyecto cuenta con una robusta suite de validación que garantiza la fiabilidad del modelo dimensional:
 
-## 3. Calidad y Gobernanza de Datos
-Para garantizar un modelo confiable y de nivel profesional, se han implementado:
-* **Tests Genéricos**: Pruebas de `unique` y `not_null` en todas las claves primarias.
-* **Integridad Referencial**: Tests de `relationships` para asegurar la consistencia entre hechos y dimensiones.
-* **Tests de Negocio**: Validación personalizada (`test_no_negative_values`) para asegurar que no existan montos de venta negativos.
-* **Monitoreo (Freshness)**: Control de frescura en el origen para garantizar que los datos se actualizan según los SLAs pactados.
+* **Integridad Básica**: Tests de `unique` y `not_null` en todas las claves primarias.
+* **Integridad Referencial**: Tests de `relationships` entre la tabla de hechos y sus dimensiones.
+* **Lógica de Negocio**: Test singular personalizado (`test_no_negative_values`) para asegurar que no existen importes negativos en la facturación.
+* **Estandarización**: Cumplimiento del estándar de dbt v1.8+ (parámetros de tests anidados bajo la propiedad `arguments`).
 
 ## 4. Stack Tecnológico
-* **Base de Datos**: Snowflake.
-* **Transformación (ETL)**: dbt (Data Build Tool).
-* **Lenguaje**: SQL + Jinja (Macros).
+* **Data Warehouse**: Snowflake.
+* **Modelado y Transformación**: dbt Core / Cloud.
+* **Lenguajes**: SQL y Jinja.
 * **Control de Versiones**: Git.
 
-## 5. Instrucciones de Ejecución
+## 5. Instrucciones de Uso
 
-1. **Instalar Dependencias**: 
-   ```bash
-   dbt deps 
-   ````
-
-2. **Construir y validar el proyecto**
-   ````bash
-   dbt build
-   ````
-
-3. **Generar documentación y linage**:
-   ````bash
-   dbt docs generate
-   dbt docs serve
-   ````
-
+1.  **Instalar dependencias**:
+    ```bash
+    dbt deps
+    ```
+2.  **Construir y Validar el Pipeline**:
+    ```bash
+    dbt build
+    ```
+    *(Este comando ejecuta dbt run, dbt test y dbt snapshot de forma atómica).*
+3.  **Visualizar Linaje y Documentación**:
+    ```bash
+    dbt docs generate
+    dbt docs serve
+    ```
 
 
 
-
+---
+**Desarrollado por:** Daniel Jaracil  
+**Estado del Proyecto:** PASS=9 | WARN=0 | ERROR=0
