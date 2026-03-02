@@ -2,9 +2,11 @@ version: 2
 
 models:
   - name: stg_orders
+    description: "Tabla de pedidos limpia y estandarizada con carga incremental."
     columns:
       - name: status_code
+        description: "Código de estado del pedido (P=Pendiente, O=Abierto, F=Finalizado)."
         tests:
           - accepted_values:
-              arguments: 
-                values: ['P', 'O', 'F'] 
+              values: ['P', 'O', 'F']
+          - not_null 

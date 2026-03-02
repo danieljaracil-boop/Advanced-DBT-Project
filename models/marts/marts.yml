@@ -17,6 +17,12 @@ models:
       - name: net_item_sales_amount
         tests:
           - test_no_negative_values
+      - name: nation_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_locations')
+                field: nation_id
 
   - name: dim_customers
     description: "Dimensión de clientes"
@@ -33,6 +39,7 @@ models:
         tests:
           - unique
           - not_null
+          
   - name: dim_locations
     description: "Dimensión de ubicación"
     columns:
