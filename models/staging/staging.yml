@@ -11,12 +11,13 @@ models:
               values: ['P', 'O', 'F']
           - not_null
 
-      - name: order_priority_code
-        description: "Código de prioridad del pedido (H=Alta, M=Media, L=Baja, NS=Sin especificar)."
+      - name: order_priority
+        description: "Código de prioridad del pedido (H=Alta, L=Baja, M=Media, U=Urgente, NS=Sin especificar)."
         tests:
           - accepted_values:
-              values: ['H', 'M', 'L', 'NS']
-
+              values: ['H', 'L', 'M', 'U', 'NS']
+          - not_null
+          
       - name: order_id
         description: "Número de identificación único del pedido."
         tests:

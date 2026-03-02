@@ -10,12 +10,11 @@ SELECT
     o_custkey AS customer_id,
     o_orderstatus AS status_code,
     case 
-            when o_orderpriority like '1%' then 'Urgent'
-            when o_orderpriority like '2%' then 'High'
-            when o_orderpriority like '3%' then 'Medium'
-            when o_orderpriority like '4%' then 'Not Specified'
-            when o_orderpriority like '5%' then 'Low'
-            else 'NS'
+            when o_orderpriority like '1%' then 'U'
+            when o_orderpriority like '2%' then 'H'
+            when o_orderpriority like '3%' then 'M'
+            when o_orderpriority like '4%' then 'NS'
+            when o_orderpriority like '5%' then 'L'
     end as order_priority,
     o_totalprice AS total_price,
     o_orderdate AS order_date
