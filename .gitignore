@@ -4,3 +4,4 @@ dbt_packages/
 logs/
 *.db
 .env
+dbt_internal_packages/

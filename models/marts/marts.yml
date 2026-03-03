@@ -39,7 +39,7 @@ models:
         tests:
           - unique
           - not_null
-          
+
   - name: dim_locations
     description: "Dimensión de ubicación"
     columns:
@@ -47,4 +47,3 @@ models:
         tests:
           - unique
           - not_null
-          
