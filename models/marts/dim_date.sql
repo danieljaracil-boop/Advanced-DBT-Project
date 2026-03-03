@@ -6,7 +6,10 @@ with date_spine as (
         datepart="day",
         start_date="cast('1990-01-01' as date)",
         end_date="cast('2000-01-01' as date)"
-    ) }}
+    ) }}  
+    
+    -- Esta macro generará una tabla con una columna llamada date_day 
+    -- que contiene todas las fechas entre el 1 de enero de 1990 y el 1 de enero de 2000
 )
 
 select

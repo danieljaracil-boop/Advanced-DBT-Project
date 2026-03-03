@@ -16,6 +16,7 @@ SELECT
             when o_orderpriority like '4%' then 'NS'
             when o_orderpriority like '5%' then 'L'
     end as order_priority,
+    regexp_substr(o_clerk, '#[0-9]+') as clerk_id,
     o_totalprice AS total_price,
     o_orderdate AS order_date
 FROM {{ source('tpch_source', 'orders') }}
