@@ -20,7 +20,7 @@ select
     s.nation_id, -- Ahora ITEM tendrá esta columna disponible
     o.order_date,
     l.quantity,
-    -- Aquí va tu macro de cálculo neto
+    -- Calculamos el monto de venta neto aplicando el descuento
     {{ calculate_discounted_amount('l.extended_price', 'l.discount_percentage') }} as net_item_sales_amount
 from line_items l
 join orders o on l.order_id = o.order_id
