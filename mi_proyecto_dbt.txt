@@ -14,16 +14,3 @@ mi_proyecto_dbt:
   target: dev
 
 
---> Para hacer el vídeo:
-
-      - Comprensión inicial de los datos
-      - Descripción del objetivo del proyecto siguiendo el enunciado.
-      - Echar un vistazo al lineage y mostrar la estructura de las tablas y
-        todo lo que se ha construido.
-      - Explicar la capa de staging
-      - Explicar la capa de intermediate
-      - Explicar los tests realizados 
-      - Ejecutar un dbt test
-      - Explicar el macro que he hecho
-      - Ejecutar dbt run para comprobar que todo funciona bien
-      - Algo más??
