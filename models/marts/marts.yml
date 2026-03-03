@@ -46,4 +46,8 @@ models:
       - name: nation_id
         tests:
           - unique
+<<<<<<< HEAD
           - not_null
+=======
+          - not_null          
+>>>>>>> 434b5ff2b2471809cd81ef1a9b55e235e1694535
