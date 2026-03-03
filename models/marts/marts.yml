@@ -23,8 +23,6 @@ models:
               arguments:
                 to: ref('dim_locations')
                 field: nation_id
-          - unique
-          - not null
 
   - name: dim_customers
     description: "Dimensión de clientes"
