@@ -6,6 +6,14 @@ name: 'advanced_dbt_project'
 version: '1.0.0'
 config-version: 2
 
+# En las versiones anteriores, dbt simplemente ejecutaba todo. El Fusion Engine
+# intenta ser "determinista", lo que significa que quiere saber qué va a pasar
+# antes de tocar la base de datos para optimizar el rendimiento y los costos. 
+# Cuando usas funciones que dependen del estado actual de la base de datos 
+# (como ver qué columnas existen hoy), el motor entra en pánico porque el resultado "podría cambiar" mañana.
+flags:
+  static_analysis: "unsafe"
+
 # This setting configures which "profile" dbt uses for this project.
 profile: 'advanced_dbt_project'
 
