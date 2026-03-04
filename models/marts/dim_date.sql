@@ -1,4 +1,7 @@
-{{ config(materialized='table') }}
+{{ config(
+    materialized='table',
+    static_analysis='unsafe' 
+) }}
 
 with date_spine as (
     -- Generamos un rango de fechas usando una macro de dbt_utils
