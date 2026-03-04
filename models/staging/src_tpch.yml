@@ -1,18 +1,24 @@
-version: 2
+version: 3
 
 sources:
   - name: tpch_source
     database: SNOWFLAKE_SAMPLE_DATA
     schema: TPCH_SF1
-    # Configuración global 
-    config: 
-          freshness: 
-            warn_after: {count: 24, period: hour}
-            error_after: {count: 48, period: hour}
-          loaded_at_field: o_orderdate 
+    description: "Fuente de datos TPC-H para analítica de cadena de suministro."
+    
+    freshness: 
+      warn_after: 
+        count: 24
+        period: hour
+      error_after: 
+        count: 48
+        period: hour
+      loaded_at_field: o_orderdate 
     tables:
       - name: orders
+        description: "Cabeceras de pedidos"
       - name: lineitem
+        description: "Detalle de artículos por pedido"
       - name: customer
       - name: part
       - name: supplier

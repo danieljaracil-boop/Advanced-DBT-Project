@@ -39,11 +39,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   advanced_dbt_project:
     staging:
-      +materialized: table # Override materialization for all models in the staging directory to be tables
+      +materialized: table # Override materialization for all models 
+      +schema: staging # Override schema for all models 
     intermediate:
-      +materialized: view # Override materialization for all models in the intermediate directory to be views
+      +materialized: view
+      +schema: intermediate
     marts:
-      +materialized: table # Override materialization for all models in the marts directory to be tables
-
+      +materialized: table 
+      +schema: marts
 
 
