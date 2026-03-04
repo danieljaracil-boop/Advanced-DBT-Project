@@ -1,6 +1,6 @@
 {{ config(
     materialized='table',
-    static_analysis='unsafe' 
+    static_analysis='strict' 
 ) }}
 
 with date_spine as (
