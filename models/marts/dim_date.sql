@@ -1,24 +1,23 @@
 {{ config(materialized='table') }}
 
-with raw_generated_dates as (
-    -- Generamos 3653 filas (aprox 10 años) de forma nativa en Snowflake
+with base_numbers as (
+    -- Usamos un nombre de columna que no sea palabra reservada
     select 
-        row_number() over (order by seq4()) - 1 as increment
-    from table(generator(rowcount => 3653)) 
+        (row_number() over (order by null)) - 1 as offset_days
+    from table(generator(rowcount => 3653))
 ),
 
 date_spine as (
     select 
-        -- Sumamos el incremento a la fecha de inicio
-        dateadd(day, increment, '1990-01-01'::date) as date_day
-    from raw_generated_dates
+        dateadd(day, offset_days, '1990-01-01'::date) as date_day
+    from base_numbers
 )
 
 select
     date_day as date_id,
-    extract(year from date_day) as year,
-    extract(month from date_day) as month,
-    extract(day from date_day) as day,
+    extract(year from date_day) as year_number, -- Cambiado para evitar conflictos
+    extract(month from date_day) as month_number,
+    extract(day from date_day) as day_number,
     extract(dayofweek from date_day) as day_of_week,
     case 
         when extract(dayofweek from date_day) in (0, 6) then true 
