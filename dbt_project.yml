@@ -55,5 +55,6 @@ models:
     marts:
       +materialized: table 
       +schema: marts
+      +static_analysis: unsafe # Override static analysis for all models in the marts folder
 
 
