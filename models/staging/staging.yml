@@ -1,26 +1,32 @@
-version: 2
+version: 3 # Upgraded versioning for the new engine
 
 models:
   - name: stg_orders
     description: "Tabla de pedidos limpia y estandarizada con carga incremental."
+    # New engine requirement: Explicitly define the materialization contract if using incremental
+    config:
+      materialized: incremental
+      incremental_strategy: merge
+      unique_key: order_id
+
     columns:
       - name: status_code
         description: "Código de estado del pedido (P=Pendiente, O=Abierto, F=Finalizado)."
-        tests:
+        data_tests: # Updated from 'tests'
           - accepted_values:
               values: ['P', 'O', 'F']
           - not_null
 
       - name: order_priority
         description: "Código de prioridad del pedido (H=Alta, L=Baja, M=Media, U=Urgente, NS=Sin especificar)."
-        tests:
+        data_tests: 
           - accepted_values:
               values: ['H', 'L', 'M', 'U', 'NS']
           - not_null
           
       - name: order_id
         description: "Número de identificación único del pedido."
-        tests:
+        data_tests: 
           - unique
           - not_null 
 
@@ -29,7 +35,7 @@ models:
     columns:
       - name: part_id
         description: "Número de identificación único de la parte."
-        tests:
+        data_tests: 
           - unique
           - not_null
 
