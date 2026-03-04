@@ -11,10 +11,10 @@ models:
           
       - name: customer_id
         data_tests:
-          # The 'arguments' key is deprecated. Use direct named parameters.
           - relationships:
-              to: ref('dim_customers')
-              field: customer_id
+              arguments:
+                to: ref('dim_customers')
+                field: customer_id
               
       - name: net_item_sales_amount
         data_tests:
@@ -23,8 +23,9 @@ models:
       - name: nation_id
         data_tests:
           - relationships:
-              to: ref('dim_locations')
-              field: nation_id
+              arguments:
+                to: ref('dim_locations')
+                field: nation_id
 
   - name: dim_customers
     description: "Dimensión de clientes"
