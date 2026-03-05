@@ -3,7 +3,6 @@ version: 3 # Upgraded versioning for the new engine
 models:
   - name: stg_orders
     description: "Tabla de pedidos limpia y estandarizada con carga incremental."
-    # New engine requirement: Explicitly define the materialization contract if using incremental
     config:
       materialized: incremental
       incremental_strategy: merge
