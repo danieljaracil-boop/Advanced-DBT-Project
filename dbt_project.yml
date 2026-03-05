@@ -41,11 +41,14 @@ models:
     staging:
       +materialized: table # Override materialization for all models 
       +schema: staging 
+      +tags: ['staging'] # Add tags to all models in the staging folder
     intermediate:
       +materialized: view
       +schema: intermediate
+      +tags: ['intermediate'] 
     marts:
       +materialized: table 
       +schema: marts
+      +tags: ['marts']
 
 
