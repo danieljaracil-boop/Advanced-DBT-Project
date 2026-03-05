@@ -3,6 +3,6 @@
 select
     o_orderkey,
     o_orderdate
-from {{ ref('stg_tpch_orders') }}
+from {{ ref('stg_orders') }}
 where o_orderdate > current_date
    or o_orderdate < '1990-01-01'
