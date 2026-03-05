@@ -2,7 +2,7 @@
 
 {{
     config(
-      target_database='tu_base_de_datos', -- Sustituye por tu DB de Snowflake
+      target_database='DBT_BTC_ANALYTICS', 
       target_schema='snapshots',
       unique_key='c_custkey',
       strategy='check',
