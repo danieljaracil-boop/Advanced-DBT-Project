@@ -40,7 +40,7 @@ models:
   advanced_dbt_project:
     staging:
       +materialized: table # Override materialization for all models 
-      +schema: staging # Override schema for all models 
+      +schema: staging 
     intermediate:
       +materialized: view
       +schema: intermediate
