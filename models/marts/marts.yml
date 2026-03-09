@@ -5,20 +5,20 @@ models:
     description: "Tabla de hechos de ventas"
     columns:
       - name: lineitem_id
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: customer_id
-        tests:
+        data_tests:
           - relationships:
               arguments:
                 to: ref('dim_customers')
                 field: customer_id
       - name: net_item_sales_amount
-        tests:
+        data_tests:
           - test_no_negative_values
       - name: nation_id
-        tests:
+        data_tests:
           - relationships:
               arguments:
                 to: ref('dim_locations')
@@ -28,7 +28,7 @@ models:
     description: "Dimensión de clientes"
     columns:
       - name: customer_id
-        tests:
+        data_tests:
           - unique
           - not_null
 
@@ -36,7 +36,7 @@ models:
     description: "Dimensión de tiempo"
     columns:
       - name: date_id
-        tests:
+        data_tests:
           - unique
           - not_null
           
@@ -44,7 +44,7 @@ models:
     description: "Dimensión de ubicación"
     columns:
       - name: nation_id
-        tests:
+        data_tests:
           - unique
           - not_null
           
