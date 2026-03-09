@@ -1,18 +1,12 @@
-
-# Name your project! Project names should contain only lowercase characters
-# and underscores. A good package name should reflect your organization's
-# name or the intended use of these models
+# Este es un archivo de configuración para el proyecto dbt llamado "advanced_dbt_project_v2". Define la estructura del proyecto, las rutas para los modelos, análisis, pruebas, semillas, macros y snapshots. También especifica la configuración de materialización y esquemas para diferentes capas de modelos (staging, intermediate y marts).
 name: 'advanced_dbt_project_v2'
 version: '1.0.0'
 config-version: 2
 
-# This setting configures which "profile" dbt uses for this project.
+# Se especifica el perfil de conexión a la base de datos que dbt utilizará para ejecutar los modelos y otras operaciones.
 profile: 'advanced_dbt_project_v2'
 
-# These configurations specify where dbt should look for different types of files.
-# The `model-paths` config, for example, states that models in this project can be
-# found in the "models/" directory. You probably won't need to change these!
-
+# Se definen las rutas para los diferentes tipos de archivos en el proyecto, como modelos, análisis, pruebas, semillas, macros y snapshots.
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
@@ -20,30 +14,23 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
-target-path: "target"  # directory which will store compiled SQL files
-clean-targets:         # directories to be removed by `dbt clean`
+# Se especifica la ruta de destino para los archivos generados por dbt, como los modelos compilados y los resultados de las pruebas. También se definen los objetivos de limpieza para eliminar archivos generados previamente.
+target-path: "target"
+clean-targets:
   - "target"
   - "dbt_packages"
 
-
-# Configuring models
-# Full documentation: https://docs.getdbt.com/docs/configuring-models
-
-# In dbt, the default materialization for a model is a view. This means, when you run 
-# dbt run or dbt build, all of your models will be built as a view in your data platform. 
-# The configuration below will override this setting for models in the example folder to 
-# instead be materialized as tables. Any models you add to the root of the models folder will 
-# continue to be built as views. These settings can be overridden in the individual model files
-# using the `{{ config(...) }}` macro.
-
+# Se definen las configuraciones específicas para los modelos dentro del proyecto. Cada capa de modelos (staging, intermediate y marts) tiene su propia configuración de materialización y esquema.
 models:
-  my_new_project:
+  advanced_dbt_project_v2:  
     staging:
-      +materialized: table # Override materialization for all models in the staging directory to be tables
+      +materialized: table
+      +schema: staging 
     intermediate:
-      +materialized: view # Override materialization for all models in the intermediate directory to be views
+      +materialized: view
+      +schema: intermediate
     marts:
-      +materialized: table # Override materialization for all models in the marts directory to be tables
-
+      +materialized: table 
+      +schema: marts
 
 
