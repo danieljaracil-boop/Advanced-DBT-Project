@@ -22,7 +22,13 @@ models:
         description: "Número de identificación único del pedido."
         data_tests:
           - unique
-          - not_null 
+          - not_null
+      - name: total_price
+        description: "Monto total de la orden."
+        data_tests:
+          - not_null
+      - name: order_date
+        description: "Fecha de la transacción." 
 
   - name: stg_parts
     description: "Tabla de partes con información estandarizada."
@@ -31,6 +37,115 @@ models:
         description: "Número de identificación único de la parte."
         data_tests:
           - unique
+          - not_null
+      - name: part_name
+        description: "Nombre descriptivo de la parte."
+      - name: manufacturer  
+        description: "Categoría a la que pertenece la parte."
+      - name: brand
+        description: "Marca de la parte."
+      - name: type
+        description: "Tipo de la parte."
+      - name: size
+        description: "Tamaño o dimensiones de la parte."
+      - name: retail_price
+        description: "Precio de venta al público de la parte."
+        data_tests:
+          - not_null
+  - name: stg_customers
+    description: "Tabla de clientes con información estandarizada."
+    columns:
+      - name: customer_id
+        description: "Número de identificación único del cliente."
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: "Nombre completo del cliente."
+      - name: address
+        description: "Dirección física registrada del cliente."
+      - name: phone_number
+        description: "Número de teléfono de contacto del cliente."
+  
+  - name: stg_partsupp 
+    description: "Tabla de partes y proveedores con información estandarizada."
+    columns:
+      - name: part_id
+        description: "Número de identificación único de la parte."
+        data_tests:
+          - unique
+          - not_null
+      - name: supplier_id
+        description: "Número de identificación único del proveedor."
+        data_tests:
+          - unique
+          - not_null
+      - name: available_quantity
+        description: "Cantidad disponible del producto en el inventario del proveedor."
+      - name: supply_cost
+        description: "Costo de suministro por unidad del producto."
+  - name: stg_supplier
+    description: "Tabla de proveedores con información estandarizada."  
+    columns:
+      - name: supplier_id
+        description: "Número de identificación único del proveedor."
+        data_tests:
+          - unique
+          - not_null
+      - name: supplier_name
+        description: "Nombre completo del proveedor."
+      - name: address
+        description: "Dirección física registrada del proveedor."
+      - name: phone_number
+        description: "Número de teléfono de contacto del proveedor."
+  - name: stg_nation
+    description: "Tabla de naciones con información estandarizada."  
+    columns:
+      - name: nation_id
+        description: "Número de identificación único de la nación."
+        data_tests:
+          - unique
+          - not_null
+      - name: nation_name
+        description: "Nombre de la nación."
+      - name: region_id
+        description: "Identificador único de la región a la que pertenece la nación."
+  - name: stg_region
+    description: "Tabla de regiones con información estandarizada."  
+    columns:
+      - name: region_id
+        description: "Número de identificación único de la región."
+        data_tests:
+          - unique
+          - not_null
+      - name: region_name
+        description: "Nombre de la región."
+  - name: stg_lineitem
+    description: "Tabla de líneas de pedido con información estandarizada."
+    columns:
+      - name: order_id
+        description: "Número de identificación único del pedido al que pertenece la línea."
+        data_tests:
+          - not_null
+      - name: part_id
+        description: "Número de identificación único de la parte incluida en la línea."
+        data_tests:
+          - not_null
+      - name: supplier_id
+        description: "Número de identificación único del proveedor asociado a la línea."
+        data_tests:
+          - not_null
+      - name: line_number
+        description: "Número secuencial que identifica la posición de la línea dentro del pedido."
+        data_tests:
+          - not_null
+      - name: quantity
+        description: "Cantidad de unidades solicitadas en la línea."
+        data_tests:
+          - not_null
+      - name: extended_price
+        description: "Precio total para la línea (cantidad * precio unitario)."
+        data_tests:
           - not_null
 
   

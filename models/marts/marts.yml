@@ -30,9 +30,16 @@ models:
     description: "Dimensión de clientes"
     columns:
       - name: customer_id
+        description: "Identificador único del cliente"
         data_tests:
           - unique
           - not_null
+      - name: customer_name
+        description: "Nombre completo del cliente."
+      - name: address
+        description: "Dirección física registrada."
+      - name: phone_number
+        description: "Teléfono de contacto."
 
   - name: dim_date
     description: "Dimensión de tiempo"
@@ -41,6 +48,14 @@ models:
         data_tests:
           - unique
           - not_null
+      - name: year
+        description: "Año de la fecha." 
+      - name: month
+        description: "Mes de la fecha."
+      - name: day
+        description: "Día del mes de la fecha."
+      - name: day_of_week
+        description: "Día de la semana de la fecha."
           
   - name: dim_locations
     description: "Dimensión de ubicación"
@@ -49,4 +64,8 @@ models:
         data_tests:
           - unique
           - not_null
+      - name: nation_name
+        description: "Nombre de la nación."
+      - name: region_name
+        description: "Nombre de la región a la que pertenece la nación."
           
