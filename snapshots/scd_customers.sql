@@ -6,7 +6,7 @@
       target_schema='development_snapshots',
       unique_key='customer_id',
       strategy='check',
-      check_cols=['email', 'address', 'phone_number'],
+      check_cols=['nation_id', 'address', 'phone_number'],
     )
 }}
 
