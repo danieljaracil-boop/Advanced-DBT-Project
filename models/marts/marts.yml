@@ -5,18 +5,22 @@ models:
     description: "Tabla de hechos de ventas"
     columns:
       - name: lineitem_id
+        description: "Identificador único de cada línea de venta"
         data_tests:
           - unique
           - not_null
       - name: customer_id
+        description: "Identificador único del cliente"
         data_tests:
           - relationships:
                 to: ref('dim_customers')
                 field: customer_id
       - name: net_item_sales_amount
+        description: "Monto neto de ventas por línea de producto"
         data_tests:
           - test_no_negative_values
       - name: nation_id
+        description: "Identificador único de la nación"
         data_tests:
           - relationships:
                 to: ref('dim_locations')

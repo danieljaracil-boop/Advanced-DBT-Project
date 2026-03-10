@@ -1,0 +1,10 @@
+version: 2
+
+snapshots:
+  - name: scd_customers
+    description: "Histórico de cambios (SCD Tipo 2) para la tabla de clientes." 
+    columns:
+      - name: dbt_valid_from
+        description: "Fecha de inicio de validez del registro." 
+      - name: dbt_valid_to
+        description: "Fecha de fin de validez (null si es el registro actual)." 
