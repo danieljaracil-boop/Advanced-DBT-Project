@@ -2,7 +2,8 @@
 
 {{
     config(
-      target_schema='snapshots',
+      target_database='DBT_BTC_ANALYTICS',
+      target_schema='development_snapshots',
       unique_key='customer_id',
       strategy='check',
       check_cols=['email', 'address', 'phone_number'],
