@@ -22,7 +22,13 @@ clean-targets:
 
 # Se definen las configuraciones específicas para los modelos dentro del proyecto. Cada capa de modelos (staging, intermediate y marts) tiene su propia configuración de materialización y esquema.
 models:
-  advanced_dbt_project_v2:  
+  advanced_dbt_project_v2:
+    # Aplicamos el hook a nivel de proyecto para que afecte a todas las capas
+    +post-hook:
+      - "grant usage on schema {{ target.schema }}_{{ model.config.schema }} to role public"
+      - "grant select on all tables in schema {{ target.schema }}_{{ model.config.schema }} to role public"
+      - "grant select on all views in schema {{ target.schema }}_{{ model.config.schema }} to role public"
+    
     staging:
       +materialized: table
       +schema: staging 
