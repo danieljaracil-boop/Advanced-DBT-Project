@@ -1,5 +1,5 @@
 select
     order_id,
-    total_amount
+    total_order_amount
 from {{ ref('fct_sales') }} -- Ajusta al nombre de tu modelo de ventas
-where total_amount < 0
+where total_order_amount < 0
