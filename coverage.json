@@ -6,6 +6,78 @@
   "coverage": 0.5512820512820513,
   "tables": [
     {
+      "name": "tpch_sf1.part",
+      "hits": 3,
+      "covered": 3,
+      "total": 9,
+      "coverage": 0.3333333333333333,
+      "columns": [
+        {
+          "name": "p_partkey",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "p_name",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "p_mfgr",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "p_brand",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "p_type",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "p_size",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "p_container",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "p_retailprice",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "p_comment",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        }
+      ]
+    },
+    {
       "name": "tpch_sf1.lineitem",
       "hits": 8,
       "covered": 8,
@@ -127,179 +199,28 @@
       ]
     },
     {
-      "name": "tpch_sf1.customer",
+      "name": "tpch_sf1.region",
       "hits": 2,
       "covered": 2,
-      "total": 8,
-      "coverage": 0.25,
+      "total": 3,
+      "coverage": 0.6666666666666666,
       "columns": [
         {
-          "name": "c_custkey",
+          "name": "r_regionkey",
           "hits": 1,
           "covered": 1,
           "total": 1,
           "coverage": 1.0
         },
         {
-          "name": "c_name",
+          "name": "r_name",
           "hits": 1,
           "covered": 1,
           "total": 1,
           "coverage": 1.0
         },
         {
-          "name": "c_address",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "c_nationkey",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "c_phone",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "c_acctbal",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "c_mktsegment",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "c_comment",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        }
-      ]
-    },
-    {
-      "name": "tpch_sf1.partsupp",
-      "hits": 5,
-      "covered": 5,
-      "total": 5,
-      "coverage": 1.0,
-      "columns": [
-        {
-          "name": "ps_partkey",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "ps_suppkey",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "ps_availqty",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "ps_supplycost",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "ps_comment",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        }
-      ]
-    },
-    {
-      "name": "tpch_sf1.part",
-      "hits": 3,
-      "covered": 3,
-      "total": 9,
-      "coverage": 0.3333333333333333,
-      "columns": [
-        {
-          "name": "p_partkey",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "p_name",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "p_mfgr",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "p_brand",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "p_type",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "p_size",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "p_container",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "p_retailprice",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "p_comment",
+          "name": "r_comment",
           "hits": 0,
           "covered": 0,
           "total": 1,
@@ -380,6 +301,87 @@
       ]
     },
     {
+      "name": "tpch_sf1.nation",
+      "hits": 3,
+      "covered": 3,
+      "total": 4,
+      "coverage": 0.75,
+      "columns": [
+        {
+          "name": "n_nationkey",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "n_name",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "n_regionkey",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "n_comment",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        }
+      ]
+    },
+    {
+      "name": "tpch_sf1.partsupp",
+      "hits": 5,
+      "covered": 5,
+      "total": 5,
+      "coverage": 1.0,
+      "columns": [
+        {
+          "name": "ps_partkey",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "ps_suppkey",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "ps_availqty",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "ps_supplycost",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "ps_comment",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        }
+      ]
+    },
+    {
       "name": "tpch_sf1.supplier",
       "hits": 7,
       "covered": 7,
@@ -438,220 +440,63 @@
       ]
     },
     {
-      "name": "tpch_sf1.region",
+      "name": "tpch_sf1.customer",
       "hits": 2,
       "covered": 2,
-      "total": 3,
-      "coverage": 0.6666666666666666,
+      "total": 8,
+      "coverage": 0.25,
       "columns": [
         {
-          "name": "r_regionkey",
+          "name": "c_custkey",
           "hits": 1,
           "covered": 1,
           "total": 1,
           "coverage": 1.0
         },
         {
-          "name": "r_name",
+          "name": "c_name",
           "hits": 1,
           "covered": 1,
           "total": 1,
           "coverage": 1.0
         },
         {
-          "name": "r_comment",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        }
-      ]
-    },
-    {
-      "name": "tpch_sf1.nation",
-      "hits": 3,
-      "covered": 3,
-      "total": 4,
-      "coverage": 0.75,
-      "columns": [
-        {
-          "name": "n_nationkey",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "n_name",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "n_regionkey",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "n_comment",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        }
-      ]
-    },
-    {
-      "name": "development_marts.dim_date",
-      "hits": 4,
-      "covered": 4,
-      "total": 6,
-      "coverage": 0.6666666666666666,
-      "columns": [
-        {
-          "name": "date_id",
+          "name": "c_address",
           "hits": 0,
           "covered": 0,
           "total": 1,
           "coverage": 0.0
         },
         {
-          "name": "year",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "month",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "day",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "day_of_week",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "is_weekend",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        }
-      ]
-    },
-    {
-      "name": "development_staging.stg_region",
-      "hits": 2,
-      "covered": 2,
-      "total": 2,
-      "coverage": 1.0,
-      "columns": [
-        {
-          "name": "region_id",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "region_name",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        }
-      ]
-    },
-    {
-      "name": "development_staging.stg_orders",
-      "hits": 5,
-      "covered": 5,
-      "total": 6,
-      "coverage": 0.8333333333333334,
-      "columns": [
-        {
-          "name": "order_id",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "customer_id",
+          "name": "c_nationkey",
           "hits": 0,
           "covered": 0,
           "total": 1,
           "coverage": 0.0
         },
         {
-          "name": "status_code",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "order_priority",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "total_price",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "order_date",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        }
-      ]
-    },
-    {
-      "name": "development_intermediate.int_locations",
-      "hits": 0,
-      "covered": 0,
-      "total": 3,
-      "coverage": 0.0,
-      "columns": [
-        {
-          "name": "nation_id",
+          "name": "c_phone",
           "hits": 0,
           "covered": 0,
           "total": 1,
           "coverage": 0.0
         },
         {
-          "name": "nation_name",
+          "name": "c_acctbal",
           "hits": 0,
           "covered": 0,
           "total": 1,
           "coverage": 0.0
         },
         {
-          "name": "region_name",
+          "name": "c_mktsegment",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "c_comment",
           "hits": 0,
           "covered": 0,
           "total": 1,
@@ -767,56 +612,102 @@
       ]
     },
     {
-      "name": "development_staging.stg_parts",
-      "hits": 7,
-      "covered": 7,
-      "total": 7,
+      "name": "development_staging.stg_orders",
+      "hits": 5,
+      "covered": 5,
+      "total": 6,
+      "coverage": 0.8333333333333334,
+      "columns": [
+        {
+          "name": "order_id",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "customer_id",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "status_code",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "order_priority",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "total_price",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "order_date",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        }
+      ]
+    },
+    {
+      "name": "development_staging.stg_region",
+      "hits": 2,
+      "covered": 2,
+      "total": 2,
       "coverage": 1.0,
       "columns": [
         {
-          "name": "part_id",
+          "name": "region_id",
           "hits": 1,
           "covered": 1,
           "total": 1,
           "coverage": 1.0
         },
         {
-          "name": "part_name",
+          "name": "region_name",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        }
+      ]
+    },
+    {
+      "name": "development_marts.dim_locations",
+      "hits": 2,
+      "covered": 2,
+      "total": 3,
+      "coverage": 0.6666666666666666,
+      "columns": [
+        {
+          "name": "nation_id",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "nation_name",
           "hits": 1,
           "covered": 1,
           "total": 1,
           "coverage": 1.0
         },
         {
-          "name": "manufacturer",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "brand",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "type",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "size",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "retail_price",
+          "name": "region_name",
           "hits": 1,
           "covered": 1,
           "total": 1,
@@ -862,18 +753,18 @@
       ]
     },
     {
-      "name": "development_marts.fct_sales",
-      "hits": 4,
-      "covered": 4,
-      "total": 10,
-      "coverage": 0.4,
+      "name": "development_intermediate.int_order_items",
+      "hits": 0,
+      "covered": 0,
+      "total": 9,
+      "coverage": 0.0,
       "columns": [
         {
           "name": "lineitem_id",
-          "hits": 1,
-          "covered": 1,
+          "hits": 0,
+          "covered": 0,
           "total": 1,
-          "coverage": 1.0
+          "coverage": 0.0
         },
         {
           "name": "order_id",
@@ -884,10 +775,10 @@
         },
         {
           "name": "customer_id",
-          "hits": 1,
-          "covered": 1,
+          "hits": 0,
+          "covered": 0,
           "total": 1,
-          "coverage": 1.0
+          "coverage": 0.0
         },
         {
           "name": "part_id",
@@ -905,13 +796,13 @@
         },
         {
           "name": "nation_id",
-          "hits": 1,
-          "covered": 1,
+          "hits": 0,
+          "covered": 0,
           "total": 1,
-          "coverage": 1.0
+          "coverage": 0.0
         },
         {
-          "name": "date_id",
+          "name": "order_date",
           "hits": 0,
           "covered": 0,
           "total": 1,
@@ -926,84 +817,10 @@
         },
         {
           "name": "net_item_sales_amount",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "total_order_amount",
           "hits": 0,
           "covered": 0,
           "total": 1,
           "coverage": 0.0
-        }
-      ]
-    },
-    {
-      "name": "development_marts.dim_locations",
-      "hits": 2,
-      "covered": 2,
-      "total": 3,
-      "coverage": 0.6666666666666666,
-      "columns": [
-        {
-          "name": "nation_id",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "nation_name",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "region_name",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        }
-      ]
-    },
-    {
-      "name": "development_marts.dim_customers",
-      "hits": 4,
-      "covered": 4,
-      "total": 4,
-      "coverage": 1.0,
-      "columns": [
-        {
-          "name": "customer_id",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "customer_name",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "address",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "phone_number",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
         }
       ]
     },
@@ -1094,136 +911,6 @@
       ]
     },
     {
-      "name": "development_staging.stg_customers",
-      "hits": 4,
-      "covered": 4,
-      "total": 7,
-      "coverage": 0.5714285714285714,
-      "columns": [
-        {
-          "name": "customer_id",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "customer_name",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "address",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "nation_id",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "phone_number",
-          "hits": 1,
-          "covered": 1,
-          "total": 1,
-          "coverage": 1.0
-        },
-        {
-          "name": "account_balance",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "market_segment",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        }
-      ]
-    },
-    {
-      "name": "development_intermediate.int_order_items",
-      "hits": 0,
-      "covered": 0,
-      "total": 9,
-      "coverage": 0.0,
-      "columns": [
-        {
-          "name": "lineitem_id",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "order_id",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "customer_id",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "part_id",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "supplier_id",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "nation_id",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "order_date",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "quantity",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        },
-        {
-          "name": "net_item_sales_amount",
-          "hits": 0,
-          "covered": 0,
-          "total": 1,
-          "coverage": 0.0
-        }
-      ]
-    },
-    {
       "name": "development_staging.stg_nation",
       "hits": 3,
       "covered": 3,
@@ -1297,6 +984,319 @@
         },
         {
           "name": "account_balance",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        }
+      ]
+    },
+    {
+      "name": "development_staging.stg_parts",
+      "hits": 7,
+      "covered": 7,
+      "total": 7,
+      "coverage": 1.0,
+      "columns": [
+        {
+          "name": "part_id",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "part_name",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "manufacturer",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "brand",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "type",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "size",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "retail_price",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        }
+      ]
+    },
+    {
+      "name": "development_marts.dim_date",
+      "hits": 4,
+      "covered": 4,
+      "total": 6,
+      "coverage": 0.6666666666666666,
+      "columns": [
+        {
+          "name": "date_id",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "year",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "month",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "day",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "day_of_week",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "is_weekend",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        }
+      ]
+    },
+    {
+      "name": "development_staging.stg_customers",
+      "hits": 4,
+      "covered": 4,
+      "total": 7,
+      "coverage": 0.5714285714285714,
+      "columns": [
+        {
+          "name": "customer_id",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "customer_name",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "address",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "nation_id",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "phone_number",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "account_balance",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "market_segment",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        }
+      ]
+    },
+    {
+      "name": "development_intermediate.int_locations",
+      "hits": 0,
+      "covered": 0,
+      "total": 3,
+      "coverage": 0.0,
+      "columns": [
+        {
+          "name": "nation_id",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "nation_name",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "region_name",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        }
+      ]
+    },
+    {
+      "name": "development_marts.dim_customers",
+      "hits": 4,
+      "covered": 4,
+      "total": 4,
+      "coverage": 1.0,
+      "columns": [
+        {
+          "name": "customer_id",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "customer_name",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "address",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "phone_number",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        }
+      ]
+    },
+    {
+      "name": "development_marts.fct_sales",
+      "hits": 4,
+      "covered": 4,
+      "total": 10,
+      "coverage": 0.4,
+      "columns": [
+        {
+          "name": "lineitem_id",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "order_id",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "customer_id",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "part_id",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "supplier_id",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "nation_id",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "date_id",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "quantity",
+          "hits": 0,
+          "covered": 0,
+          "total": 1,
+          "coverage": 0.0
+        },
+        {
+          "name": "net_item_sales_amount",
+          "hits": 1,
+          "covered": 1,
+          "total": 1,
+          "coverage": 1.0
+        },
+        {
+          "name": "total_order_amount",
           "hits": 0,
           "covered": 0,
           "total": 1,
