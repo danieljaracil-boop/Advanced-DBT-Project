@@ -1,65 +1,54 @@
-# Reto Técnico: Arquitectura de Datos dbt + Snowflake (TPCH)
+# Reto Avanzado: Ingeniería y Gobernanza con dbt + Snowflake
 
 ## 1. Descripción del Proyecto
-Este proyecto implementa un flujo de datos completo (ELT) utilizando el dataset de industria **TPCH_SF1** en Snowflake. El objetivo es transformar datos crudos en una capa analítica compuesta por un modelo dimensional (Star Schema) optimizado para el consumo de Business Intelligence.
+Este proyecto amplía el flujo ELT inicial para implementar funcionalidades avanzadas de **calidad de datos, trazabilidad histórica y orquestación**. El objetivo es garantizar un adecuado gobierno del dato y una observabilidad completa del pipeline de acuerdo a los requisitos de SDG Group.
 
-## 2. Arquitectura de Capas
-Se ha implementado una arquitectura modular siguiendo las mejores prácticas de dbt:
+## 2. Funcionalidades Avanzadas Implementadas
 
-### A. Staging Layer (`models/staging/`)
-Mapeo directo y limpieza inicial de las entidades fuente.
-* **Materialización**: Tablas.
-* **Estrategia Incremental**: El modelo `stg_orders` utiliza carga **incremental** basada en `o_orderdate` para optimizar el rendimiento y reducir el consumo de recursos en Snowflake.
-* **Gobernanza**: Control de frescura (`source freshness`) configurado para monitorear la latencia de los datos de origen.
+### A. Trazabilidad Histórica (Snapshots)
+* **SCD Tipo 2**: Implementación de snapshots para la dimensión de clientes (`scd_customers`) para realizar un seguimiento de los cambios en dimensiones de variación lenta.
+* **Propósito**: Mantener un historial de cambios que permita realizar análisis de un momento dado y comprender la evolución de los datos de clientes.
 
-### B. Intermediate Layer (`models/intermediate/`)
-Capa de lógica de negocio donde se realizan cruces complejos y cálculos.
-* **Modelos**: `int_order_items` y `int_locations`.
-* **Lógica**: Uso de una **Macro personalizada** (`calculate_discounted_amount`) para centralizar el cálculo del importe neto tras descuentos, garantizando la reutilización del código.
-* **Materialización**: Vista.
+### B. Suite de Pruebas Personalizadas (Custom Tests)
+Se han implementado pruebas SQL personalizadas para aplicar reglas de negocio específicas y requisitos de calidad:
+* **Capa Staging**: Validación de rango de fechas para asegurar que los registros están dentro de un intervalo válido.
+* **Capa Business**: Verificación de consistencia en importes de ventas para asegurar que los datos agregados coinciden con las expectativas.
+* **Organización**: Las pruebas se han organizado en paquetes lógicos (Staging y Business) para mejorar el mantenimiento.
 
-### C. Business Layer - Marts (`models/marts/`)
-Producto final listo para el negocio, estructurado como modelo dimensional.
-* **Fact Table**: `fct_sales` (Métricas de ventas agregadase).
-* **Dimensions**: `dim_customers` (Atributos de cliente), `dim_locations` (Dimensión espacial simplificada) y `dim_date` (Dimensión temporal generada mediante *date spine*).
-* **Materialización**: Tablas.
+### C. Gobernanza y Documentación (Trazabilidad)
+* **Cobertura**: Validación del nivel de documentación mediante el paquete `dbt-coverage`, garantizando un adecuado gobierno del dato[cite: 18, 19].
+* **Linaje**: Documentación completa del grafo de dependencias y linaje de datos para asegurar la trazabilidad desde la fuente hasta el mart.
 
+## 3. Estrategia de DevOps y Orquestación
 
+### A. Gestión de Entornos y Ramas
+Se sigue una estrategia de ramificación colaborativa profesional:
+* **Flujo**: `feature/nueva_dimension` → `dev` → `main`.
+* **Permisos**: Implementación de *post-hooks* para garantizar que, tras la destrucción y creación de tablas en ejecuciones `full-refresh`, todos los usuarios dispongan de los permisos necesarios.
 
-## 3. Calidad y Validación de Datos
-El proyecto cuenta con una robusta suite de validación que garantiza la fiabilidad del modelo dimensional:
+### B. Orquestación y Observabilidad
+Implementación de una estrategia de ejecución independiente por capas apoyada en **tags**:
+* **Jobs en dbt Cloud**: Creación de jobs específicos para la carga y validación de cada etapa (Staging, Business).
+* **Observabilidad**: Almacenamiento de trazas de ejecución para regular la orquestación y monitorizar la calidad del dato.
 
-* **Integridad Básica**: Tests de `unique` y `not_null` en todas las claves primarias.
-* **Integridad Referencial**: Tests de `relationships` entre la tabla de hechos y sus dimensiones.
-* **Lógica de Negocio**: Test singular personalizado (`test_no_negative_values`) para asegurar que no existen importes negativos en la facturación.
-* **Estandarización**: Cumplimiento del estándar de dbt v1.8+ (parámetros de tests anidados bajo la propiedad `arguments`).
+## 4. Instrucciones de Orquestación (Línea de Comandos)
+Siguiendo los requisitos del proyecto, los jobs de dbt Cloud se invocan mediante línea de comandos para simular un orquestador externo:
 
-## 4. Stack Tecnológico
-* **Data Warehouse**: Snowflake.
-* **Modelado y Transformación**: dbt Core / Cloud.
-* **Lenguajes**: SQL y Jinja.
-* **Control de Versiones**: Git.
+1. **Validar Frescura de Fuentes**:
+   ```bash
+   dbt source freshness
+   ```
 
-## 5. Instrucciones de Uso
-
-1.  **Instalar dependencias**:
+2.  **Ejecutar Carga de Staging (Tags)**:
     ```bash
-    dbt deps
-    ```
-    
-2.  **Construir y Validar el Pipeline**:
-    ```bash
-    dbt build
+    dbt build --select tag:staging
     ```
 
-3.  **Visualizar Linaje y Documentación**:
+3.  **Ejecutar Carga de Business/Marts (Tags)**:
     ```bash
-    dbt docs generate
-    dbt docs serve
+    dbt build --select tag:business
     ```
-
-
 
 ---
-**Desarrollado por:** Daniel Jaracil  
+**Desarrollado por:** Daniel Jiménez Aracil  
 **Estado del Proyecto:** PASS=9 | WARN=0 | ERROR=0
