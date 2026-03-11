@@ -4,7 +4,7 @@ models:
   - name: int_locations
     description: "Capa intermedia que consolida la información geográfica. Une los datos de naciones y regiones para crear una jerarquía espacial completa."
     columns:
-      - name: location_id
+      - name: nation_id
         description: "Clave única de la ubicación (PK)."
         tests:
           - unique
@@ -15,24 +15,34 @@ models:
         description: "Nombre de la región a la que pertenece la nación (ej. EUROPE, AMERICA)."
 
   - name: int_order_items
-    description: "Modelo intermedio que desglosa las líneas de pedido (lineitems) enriquecidas con información de la orden y cálculos de negocio."
+    description: "Modelo intermedio que desglosa las líneas de pedido enriquecidas con información de la orden y cálculos de negocio."
     columns:
-      - name: order_item_id
-        description: "Identificador único de la línea de pedido (PK)."
-        tests:
-          - unique
-          - not_null
-      - name: order_key
-        description: "Clave foránea que conecta con el modelo de órdenes."
-      - name: part_key
-        description: "Clave foránea que conecta con el catálogo de partes/productos."
+      - name: order_id
+        description: "Identificador único de la orden de compra."
+      - name: part_id
+        description: "Identificador de la parte o producto asociado a la línea de pedido."
+      - name: supplier_id
+        description: "Identificador del proveedor que suministra la parte."
+      - name: line_number
+        description: "Número de secuencia de la línea dentro de una misma orden."
       - name: quantity
-        description: "Cantidad de unidades del producto en esta línea."
+        description: "Cantidad de unidades solicitadas en la línea de pedido."
       - name: extended_price
-        description: "Precio bruto antes de descuentos e impuestos."
-      - name: discount_amount
-        description: "Monto del descuento aplicado (calculado mediante macro personalizada)."
-      - name: net_item_sales_amount
-        description: "Importe neto final de la línea de pedido tras aplicar descuentos."
+        description: "Precio bruto total de la línea de pedido (Cantidad x Precio Unitario)."
+      - name: discount_percentage
+        description: "Porcentaje de descuento aplicado a la línea de pedido."
+      - name: tax_rate
+        description: "Tasa de impuesto aplicable a la línea de pedido."
+      - name: ship_date
+        description: "Fecha en la que los artículos fueron enviados."
+      - name: commit_date
+        description: "Fecha de compromiso de entrega acordada con el cliente."
+      - name: receipt_date
+        description: "Fecha real en la que el cliente recibió los artículos."
+      - name: shipping_instructions
+        description: "Instrucciones especiales para el manejo y envío de la mercancía."
+      - name: shipping_mode
+        description: "Método de transporte utilizado para el envío (ej. AIR, SHIP, TRUCK)."
       - name: order_date
         description: "Fecha de la orden asociada a este ítem."
+      
