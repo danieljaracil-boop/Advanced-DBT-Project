@@ -13,7 +13,6 @@ models:
         description: "Identificador único del cliente"
         data_tests:
           - relationships:
-              arguments:
                 to: ref('dim_customers')
                 field: customer_id
       - name: net_item_sales_amount
@@ -24,7 +23,6 @@ models:
         description: "Identificador único de la nación"
         data_tests:
           - relationships:
-              arguments:
                 to: ref('dim_locations')
                 field: nation_id
 
