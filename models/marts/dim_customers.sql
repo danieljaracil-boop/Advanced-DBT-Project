@@ -1,8 +1,13 @@
 {{ config(materialized='table') }}
--- Este modelo representa la dimensión de clientes, que se construye a partir de la tabla de staging 'stg_customers'. Se seleccionan las columnas relevantes para la dimensión, como el identificador del cliente, su nombre, dirección y número de teléfono. Esta tabla se materializa como una tabla física en el almacén de datos para mejorar el rendimiento en las consultas que la utilicen.
+
+-- Ahora este modelo consume del snapshot para garantizar la trazabilidad histórica (SCD Tipo 2)
 SELECT
     customer_id,
     customer_name,
     address,
-    phone_number
-FROM {{ ref('stg_customers') }}
+    phone_number,
+    dbt_valid_from, -- Columnas automáticas del snapshot
+    dbt_valid_to,
+    dbt_scd_id
+FROM {{ ref('scd_customers') }}
+WHERE dbt_valid_to IS NULL -- Esto selecciona solo los registros vigentes
