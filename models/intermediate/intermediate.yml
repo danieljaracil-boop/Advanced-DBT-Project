@@ -15,34 +15,24 @@ models:
         description: "Nombre de la región a la que pertenece la nación (ej. EUROPE, AMERICA)."
 
   - name: int_order_items
-    description: "Modelo intermedio que desglosa las líneas de pedido enriquecidas con información de la orden y cálculos de negocio."
+    description: "Modelo intermedio que une líneas de pedido con órdenes y proveedores para enriquecer la información transaccional y aplicar cálculos de negocio."
     columns:
+      - name: lineitem_id
+        description: "Identificador único de la línea de pedido (PK)."
       - name: order_id
-        description: "Identificador único de la orden de compra."
+        description: "Identificador único de la orden de compra asociada."
+      - name: customer_id
+        description: "Identificador del cliente que realizó la orden."
       - name: part_id
-        description: "Identificador de la parte o producto asociado a la línea de pedido."
+        description: "Identificador de la parte o producto vendido."
       - name: supplier_id
-        description: "Identificador del proveedor que suministra la parte."
-      - name: line_number
-        description: "Número de secuencia de la línea dentro de una misma orden."
-      - name: quantity
-        description: "Cantidad de unidades solicitadas en la línea de pedido."
-      - name: extended_price
-        description: "Precio bruto total de la línea de pedido (Cantidad x Precio Unitario)."
-      - name: discount_percentage
-        description: "Porcentaje de descuento aplicado a la línea de pedido."
-      - name: tax_rate
-        description: "Tasa de impuesto aplicable a la línea de pedido."
-      - name: ship_date
-        description: "Fecha en la que los artículos fueron enviados."
-      - name: commit_date
-        description: "Fecha de compromiso de entrega acordada con el cliente."
-      - name: receipt_date
-        description: "Fecha real en la que el cliente recibió los artículos."
-      - name: shipping_instructions
-        description: "Instrucciones especiales para el manejo y envío de la mercancía."
-      - name: shipping_mode
-        description: "Método de transporte utilizado para el envío (ej. AIR, SHIP, TRUCK)."
+        description: "Identificador del proveedor que suministra el producto."
+      - name: nation_id
+        description: "Identificador del país de origen del proveedor, facilitando el análisis geográfico por ítem."
       - name: order_date
-        description: "Fecha de la orden asociada a este ítem."
+        description: "Fecha en la que se registró la orden original."
+      - name: quantity
+        description: "Cantidad de unidades vendidas en esta línea específica."
+      - name: net_item_sales_amount
+        description: "Importe neto de la venta tras aplicar el porcentaje de descuento sobre el precio extendido, calculado mediante macro personalizada."
       

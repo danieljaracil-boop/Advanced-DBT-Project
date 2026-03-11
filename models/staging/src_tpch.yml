@@ -20,7 +20,20 @@ sources:
             description: "Fecha en la que se realizó el pedido." 
           - name: o_custkey
             description: "Clave foránea que referencia al cliente que realizó el pedido."
-      
+          - name: o_orderstatus
+            description: "Estado actual de la orden (F, O, P)."
+          - name: o_totalprice
+            description: "Precio total de la orden incluyendo impuestos."
+          - name: o_orderdate
+            description: "Fecha de registro de la orden."
+          - name: o_orderpriority
+            description: "Prioridad asignada a la orden."
+          - name: o_clerk
+            description: "Identificador del empleado que procesó la orden."
+          - name: o_shippriority
+            description: "Prioridad de envío."
+          - name: o_comment
+            description: "Comentarios adicionales de la orden."
       - name: customer
         description: "Información demográfica de los clientes." 
         columns:
@@ -28,25 +41,53 @@ sources:
             description: "Identificador único del cliente." 
           - name: c_name
             description: "Nombre completo del cliente." 
+          - name: c_address
+            description: "Dirección física del cliente."
+          - name: c_nationkey
+            description: "Clave foránea de la nación del cliente."
+          - name: c_phone
+            description: "Número de contacto telefónico."
+          - name: c_acctbal
+            description: "Saldo actual de la cuenta del cliente."
+          - name: c_mktsegment
+            description: "Segmento de mercado al que pertenece el cliente."
+          - name: c_comment
+            description: "Comentarios generales del cliente."
       - name: lineitem
-        description: "Detalle de los artículos incluidos en cada pedido." 
+        description: "Detalle individual de los artículos por cada orden."
         columns:
           - name: l_orderkey
-            description: "Clave foránea que referencia a la orden a la que pertenece el artículo." 
+            description: "Referencia a la cabecera de la orden."
           - name: l_partkey
-            description: "Identificador del producto o parte." 
+            description: "Referencia al producto vendido."
           - name: l_suppkey
-            description: "Identificador del proveedor." 
+            description: "Referencia al proveedor del producto."
           - name: l_linenumber
-            description: "Número de línea dentro de la orden." 
+            description: "Número de línea dentro de la orden."
           - name: l_quantity
-            description: "Cantidad de unidades del artículo en la orden." 
+            description: "Cantidad de unidades."
           - name: l_extendedprice
-            description: "Precio extendido (cantidad * precio unitario) para el artículo." 
+            description: "Precio de lista multiplicado por la cantidad."
           - name: l_discount
-            description: "Descuento aplicado al artículo, representado como un valor decimal entre 0 y 1." 
+            description: "Tasa de descuento aplicada."
           - name: l_tax
-            description: "Impuesto aplicado al artículo, representado como un valor decimal entre 0 y 1."
+            description: "Tasa de impuesto aplicada."
+          - name: l_returnflag
+            description: "Indicador de devolución de la mercancía."
+          - name: l_linestatus
+            description: "Estado de la línea de pedido."
+          - name: l_shipdate
+            description: "Fecha de envío."
+          - name: l_commitdate
+            description: "Fecha de compromiso de entrega."
+          - name: l_receiptdate
+            description: "Fecha de recepción por el cliente."
+          - name: l_shipinstruct
+            description: "Instrucciones de envío."
+          - name: l_shipmode
+            description: "Modo de transporte."
+          - name: l_comment
+            description: "Comentarios de la línea."
       - name: part
         description: "Información de las partes o productos." 
         columns:
@@ -56,8 +97,18 @@ sources:
             description: "Nombre de la parte o producto." 
           - name: p_mfgr
             description: "Fabricante de la parte o producto." 
-          - name: p_category
-            description: "Categoría a la que pertenece la parte o producto."
+          - name: p_brand
+            description: "Marca comercial."
+          - name: p_type
+            description: "Tipo de producto."
+          - name: p_size
+            description: "Tamaño del producto."
+          - name: p_container
+            description: "Tipo de contenedor de empaque."
+          - name: p_retailprice
+            description: "Precio de venta sugerido."
+          - name: p_comment
+            description: "Comentarios del producto."
       - name: supplier
         description: "Información de los proveedores." 
         columns:

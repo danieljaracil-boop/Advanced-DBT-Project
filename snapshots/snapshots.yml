@@ -6,10 +6,21 @@ snapshots:
     columns:
       - name: customer_id
         description: "ID del cliente."
+      - name: customer_name
+        description: "Nombre completo del cliente."
+      - name: address
+        description: "Dirección física registrada."
+      - name: nation_id
+        description: "ID de la nación del cliente."
+      - name: phone_number
+        description: "Teléfono de contacto."
+      - name: account_balance
+        description: "Saldo de la cuenta del cliente."
+      - name: market_segment
+        description: "Segmento de mercado al que pertenece el cliente."
       - name: dbt_valid_from
         description: "Fecha de inicio de validez del registro." 
       - name: dbt_valid_to
         description: "Fecha de fin de validez (null si es el registro actual)."
       - name: dbt_scd_id
-        description: "Hash único del registro histórico." 
-        
+        description: "Hash único del registro histórico."         

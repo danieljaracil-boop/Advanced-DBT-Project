@@ -25,6 +25,18 @@ models:
           - relationships:
                 to: ref('dim_locations')
                 field: nation_id
+      - name: supplier_id
+        description: "Identificador único del proveedor"
+      - name: order_date_id
+        description: "Identificador único de la fecha del pedido"
+        data_tests:
+          - relationships:
+                to: ref('dim_date')
+                field: date_id
+      - name: total_order_amount
+        description: "Monto total del pedido"
+        data_tests:
+          - test_no_negative_values
 
   - name: dim_customers
     description: "Dimensión de clientes"
@@ -45,6 +57,7 @@ models:
     description: "Dimensión de tiempo"
     columns:
       - name: date_id
+        description: "Identificador único de la fecha."
         data_tests:
           - unique
           - not_null
@@ -61,6 +74,7 @@ models:
     description: "Dimensión de ubicación"
     columns:
       - name: nation_id
+        description: "Identificador único de la nación."
         data_tests:
           - unique
           - not_null
