@@ -7,8 +7,8 @@ sources:
     # Configuración global 
     config: 
           freshness: 
-            warn_after: {count: 24, period: hour}
-            error_after: {count: 48, period: hour}
+            warn_after: {count: 10, period: year}
+            error_after: {count: 15, period: year}
           loaded_at_field: o_orderdate 
     tables:
       - name: orders
