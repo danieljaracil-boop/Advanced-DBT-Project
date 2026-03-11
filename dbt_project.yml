@@ -23,6 +23,9 @@ clean-targets:
 # Se definen las configuraciones específicas para los modelos dentro del proyecto. Cada capa de modelos (staging, intermediate y marts) tiene su propia configuración de materialización y esquema.
 models:
   advanced_dbt_project_v2:
+
+    +tags: ["project_v2"] # Agregamos una etiqueta a todos los modelos del proyecto para facilitar su identificación y filtrado en dbt.
+
     # Aplicamos el hook a nivel de proyecto para que afecte a todas las capas
     +post-hook:
       - "grant usage on schema {{ target.schema }}_{{ model.config.schema }} to role public"
@@ -32,11 +35,14 @@ models:
     staging:
       +materialized: table
       +schema: staging 
+      +tags: ["staging"]
     intermediate:
       +materialized: view
       +schema: intermediate
+      +tags: ["intermediate", "business"]
     marts:
       +materialized: table 
       +schema: marts
+      +tags: ["marts", "business"]
 
 
