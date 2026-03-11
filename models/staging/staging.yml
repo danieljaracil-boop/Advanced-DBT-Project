@@ -73,12 +73,10 @@ models:
       - name: part_id
         description: "Número de identificación único de la parte."
         data_tests:
-          - unique
           - not_null
       - name: supplier_id
         description: "Número de identificación único del proveedor."
         data_tests:
-          - unique
           - not_null
       - name: available_quantity
         description: "Cantidad disponible del producto en el inventario del proveedor."
