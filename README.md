@@ -51,4 +51,3 @@ Siguiendo los requisitos del proyecto, los jobs de dbt Cloud se invocan mediante
 
 ---
 **Desarrollado por:** Daniel Jiménez Aracil  
-**Estado del Proyecto:** PASS=9 | WARN=0 | ERROR=0
