@@ -6,7 +6,7 @@
 
 SELECT
     c_custkey AS customer_id,
-    c_name AS customer_name,
+    regexp_substr(c_name, '#[0-9]+') AS customer_name,
     c_address AS address,
     c_nationkey AS nation_id,
     c_phone AS phone_number,
