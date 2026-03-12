@@ -27,7 +27,7 @@ models:
                 field: nation_id
       - name: supplier_id
         description: "Identificador único del proveedor"
-      - name: order_date_id
+      - name: date_id
         description: "Identificador único de la fecha del pedido"
         data_tests:
           - relationships:
